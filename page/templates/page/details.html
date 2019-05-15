@@ -1,0 +1,68 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+<div class="container">
+    <div class="row">
+        <!-- left album information -->
+        <div class="col-sm-3">
+            <div class="panel panel-info">
+                <div class="panel-body" style="background: navy">
+                    <img src="{{ album.cover.url }}" class="img img-thumbnail img-responsive" alt=""  style="height: 250px; width: 250px">i
+                    <div class="captions">
+                        <h5>{{ album.name }}</h5>
+                        <h6>{{ album.genre }}</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end album information -->
+        <div class="col-sm-9">
+            <ul class="nav nav-pills">
+                <li class="active"><a href="">Songs</a></li>
+                  <li><a href="{% url 'page:add_song' album.id %}">Add Songs</a></li>
+            </ul>
+            <div class="panel panel-default" style="margin: 2px">
+                <div class="panel-body">
+                    <h4 class="text-primary">All Songs</h4>
+                    <table class="table">
+                        <tr>
+                            <thead>
+                            <th>#</th>
+                            <th>Song name</th>
+                            <th>audio</th>
+                            <th>Favorite</th>
+                            <th>Action</th>
+                            </thead>
+                        </tr>
+                        <tbody>
+                        {% if album.song_set %}
+                            {% for s in album.song_set.all %}
+                                <tr>
+                                <td>{{ album.id }}</td>
+                                <td>{{ s.name }}</td>
+                                <td><a href="{{ s.audio.url }}" class="btn btn-info btn-sm" target="_blank">
+                                    <i class="fa fas-play-circle"></i>
+                                </a></td>
+                                    <td>
+                                        <a href="" class="btn btn-primary btn-sm">
+                                            <i class="fa fas-heart"></i>
+                                        </a>
+                                    </td>
+                                <td>
+                                    <a href="" class="btn btn-success btn-sm">
+                                        <i class="fa fas-edit"></i>
+                                    </a>
+                                    <a href="" class="btn btn-danger btn-sm">
+                                        <i class="fa fas-trash"></i>
+                                    </a>
+                                </td>
+                                </tr>
+                            {% endfor %}
+                        {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

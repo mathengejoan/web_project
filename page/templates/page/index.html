@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+<div class="container">
+   {% for album in albums %}
+       <div class="col-sm-3">
+       <div class="panel panel-default  my-1" style="background: navy; ">
+           <a href="{% url 'page:details' album.id %}">
+           <img src="{{ album.cover.url }}" class="img img-thumbnail" alt="" style="height: 250px; width: 250px">
+           </a>
+           <div class="caption" style="margin: 2px">
+               <h5>{{ album.name }}</h5>
+               <h6>{{ album.artist }}</h6>
+               <a href="" class="btn btn-primary btn-sm">
+                   <i class="fas fa-edit"></i>
+               </a>
+                <a href="" class="btn btn-info btn-sm">
+                   <i class="fas fa-heart"></i>
+               </a>
+                <a href="{% url 'page:delete-album' album.id %}" class="btn btn-danger btn-sm" style="float: right" onclick='return confirm("are you sure you want to delete")'>
+                   <i class="fas fa-trash"></i>
+               </a>
+
+           </div>
+       </div>
+
+       </div>
+   {% endfor %}
+</div>
