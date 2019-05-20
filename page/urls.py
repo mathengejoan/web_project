@@ -14,5 +14,6 @@ urlpatterns =[
     #path('logout',auth_views.LogoutView.as_view(), name='logout'),
     path('login',views.login_user,name='login'),
     path('logout',views.logout_user,name='logout'),
+    path('(?P<album_id>[0-9]+)/update',views.update_album, name='update'),
 
 ]
