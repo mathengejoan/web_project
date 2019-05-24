@@ -15,5 +15,7 @@ urlpatterns =[
     path('login',views.login_user,name='login'),
     path('logout',views.logout_user,name='logout'),
     path('(?P<album_id>[0-9]+)/update',views.update_album, name='update'),
+    path('(?P<album_id>[0-9]+)/delete_song/(?P<song_id>[0-9]+)/',views.delete_song, name='delete_song'),
+    path('(?P<album_id>[0-9]+)/update_song/(?P<song_id>[0-9]+)/', views.update_song, name='update_song'),
 
 ]

@@ -8,6 +8,11 @@
                     <div class="panel-body" style="background: navy">
                         <h4 class="text-primary" style="color: beige">Add Song</h4>
                         <hr>
+                        {% if message %}
+                            <div class="alert alert-danger">
+                            <h4>{{ message }}</h4>
+                            </div>
+                        {% endif %}
                         <form method="post" enctype="multipart/form-data">
                             {% csrf_token %}
                             {{ form|crispy }}

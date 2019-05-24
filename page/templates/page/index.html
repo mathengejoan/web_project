@@ -4,7 +4,7 @@
 <div class="container">
    {% for album in albums %}
        <div class="col-sm-3">
-       <div class="panel panel-default  my-1" style="background: red; ">
+       <div class="panel panel-default  my-1" style="background: paleturquoise; ">
            <a href="{% url 'page:details' album.id %}">
            <img src="{{ album.cover.url }}" class="img img-thumbnail" alt="" style="height: 250px; width: 250px">
            </a>
